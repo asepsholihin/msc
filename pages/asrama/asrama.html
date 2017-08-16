@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+      <div class="card ">
+          <div class="header">
+              <a href="#/siswa" class="icon-link icon-close"><i class="ti-close"></i></a>
+              <h4 class="title">Data Asrama</h4>
+              <p class="category">Here is a subtitle for this table</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+              <table class="table table-striped">
+                  <thead>
+                    <th>No</th>
+                    <th>Asrama</th>
+                    <th>Wali Asrama</th>
+                    <th class="center">Anggota</th>
+                    <th class="center">Keterangan</th>
+                    <th class="center" colspan="3"><a href="#/tambah-asrama" class="btn btn-default btn-fill btn-block"><i class="ti-pencil-alt"></i></a><th>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="vw in asrama">
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ vw.asrama }}</td>
+                        <td>{{ vw.nama }}</td>
+                        <td class="center">{{ vw.anggota }}</td>
+                        <td class="center">{{ vw.keterangan }}</td>
+                        <td width="1" class="center"><a href="#/update-asrama/{{ vw.id }}" class="icon-link btn-warning"><i class="ti-pencil"></i></a></td>
+                        <td width="1" class="center"><a href="#/anggota-asrama/{{ vw.id }}" class="icon-link btn-primary"><i class="ti-user"></i></a></td>
+                        <td width="1" class="center"><a href="#/" class="icon-link btn-danger"><i class="ti-trash"></i></a></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+  </div>
+
+</div>

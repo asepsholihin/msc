@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-lg-4 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="#/guru" class="icon-link btn-warning"><i class="ti-user"></i></a> Guru
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="" class="icon-link btn-info"><i class="ti-medall-alt"></i></a> Status Guru
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="" class="icon-link btn-success"><i class="ti-calendar"></i></a> Presensi
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card  box-siswa">
+            <div class="header">
+                <a href="pages/pegawai/pegawai-excel.php" target="_blank" title="Excel" class="icon-link icon-printer"><i class="ti-agenda"></i></a>
+                <h4 class="title">Data Pegawai</h4>
+                <p class="category">Here is a subtitle for this table</p>
+            </div>
+
+            <div class="header">
+              <div class="form-group">
+                <input class="form-control border-input" type="text" ng-model="bynama" placeholder="Cari pegawai...">
+              </div>
+            </div>
+
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Tempat Tanggal Lahir</th>
+                        <th>Asal Sekolah</th>
+                        <th class="center">Masa Kerja</th>
+                        <th class="center">BPJS Kes</th>
+                        <th class="center">BPJS Ket</th>
+                        <th class="center">Status</th>
+                        <th class="center" colspan="3"><a href="#/tambah-pegawai" class="btn btn-default btn-fill btn-block"><i class="ti-pencil-alt"></i></a></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr ng-repeat="vw in pegawai | filter:bynama">
+                      <td>{{ $index+1 }}</td>
+                      <td>{{ vw.gelar_awal }} {{ vw.nama | ucwords }} <span ng-show="vw.gelar_akhir"></span> {{ vw.gelar_akhir }} <br> <strong>{{ vw.nip }}</strong></td>
+                      <td>{{ vw.tempat_lahir }}, {{ vw.tanggal_lahir }}</td>
+                      <td>{{ vw.asal_sekolah }}</td>
+                      <td class="center">{{ vw.status }}</td>
+                      <td class="center"><i class="ti-{{ vw.bpjs_kes_icon }} text-{{ vw.bpjs_kes }}"></i></td>
+                      <td class="center"><i class="ti-{{ vw.bpjs_ket_icon }} text-{{ vw.bpjs_ket }}"></i></td>
+                      <td class="center"><i class="text-{{ vw.aktif }} ti-face-{{vw.icon}}"></i></td>
+                      <td width="1" class="center"><a title="Edit Pegawai" href="#/update-pegawai/{{ vw.nip }}" class="icon-link btn-warning"><i class="ti-pencil"></i></a></td>
+                      <td width="1" class="center"><a title="Lihat Pegawai" href="#/detail-pegawai/{{ vw.nip }}" class="icon-link btn-info"><i class="ti-search"></i></a></td>
+                      <td width="1" class="center"><a title="Aktif Pegawai" ng-click="aktifPegawai(pegawai.indexOf(vw), vw.nip, vw.nama | ucwords)" class="icon-link btn-danger"><i class="ti-power-off"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="header">
+                    <button ng-click="loadMore()" ng-hide="loadMoreDisabled()" class="btn btn-default btn-block">Tampilkan lebih banyak</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

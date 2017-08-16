@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <a href="#/akademik" class="icon-link icon-close"><i class="ti-close"></i></a>
+                <h4 class="title">RPP Mata Pelajaran</h4>
+                <p class="category">Here is a subtitle for this table</p>
+            </div>
+
+            <div class="header">
+              <div class="form-group">
+                <input class="form-control border-input" type="text" ng-model="bynama" placeholder="Cari pelajaran...">
+              </div>
+            </div>
+
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Kode</th>
+                        <th>Pelajaran</th>
+                        <th>File</th>
+                        <th>Size</th>
+                        <th class="center" colspan="2"><a ng-click="uploadRPP(201510200395093);" class="btn btn-default btn-fill btn-block"><i class="ti-upload"></i> Upload</a><th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr ng-repeat="vw in rpp | filter:bynama">
+                      <td>{{ $index+1 }}</td>
+                      <td>{{ vw.nama | ucwords }}</td>
+                      <td>{{ vw.kode }}</td>
+                      <td>{{ vw.pelajaran }}</td>
+                      <td>{{ vw.file_name }}</td>
+                      <td>{{ vw.file_size }} kb</td>
+                      <td width="1" class="center"><a href="api/akademik/download-rpp.php?id={{ vw.id }}" target="_blank" class="icon-link btn-info"><i class="ti-download"></i></a></td>
+                      <td width="1" class="center"><a href="" class="icon-link btn-danger"><i class="ti-trash"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>

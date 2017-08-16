@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-lg-3 col-sm-6 col-lg-offset-3">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="#/asrama" class="icon-link btn-warning"><i class="ti-home"></i></a> Asrama
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="#/kelas" class="icon-link btn-success"><i class="ti-blackboard"></i></a> Kelas
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card  box-siswa">
+            <div class="header">
+                <h4 class="title">Data Siswa</h4>
+                <p class="category">Here is a subtitle for this table</p>
+            </div>
+
+            <div class="header">
+              <div class="form-group">
+                <input class="form-control border-input" type="text" ng-model="bynama" placeholder="Cari siswa...">
+              </div>
+            </div>
+
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th class="center">No</th>
+                        <th class="center">NISN</th>
+                        <th>Nama</th>
+                        <th>Asal Sekolah</th>
+                        <th>Tempat Tanggal Lahir</th>
+                        <th class="center">Status</th>
+                        <th class="center" colspan="3"><a href="#/tambah-siswa" class="btn btn-default btn-fill btn-block"><i class="ti-pencil-alt"></i></a><th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr ng-repeat="vw in siswa | filter:bynama">
+                      <td>{{ $index+1 }}</td>
+                      <td>{{ vw.nisn }}</td>
+                      <td>{{ vw.nama | ucwords }} <br> <strong>{{ vw.nis }}</strong></td>
+                      <td>{{ vw.asal_sekolah }}</td>
+                      <td>{{ vw.tempat_lahir }}, {{ vw.tanggal_lahir }}</td>
+                      <td class="center"><i class="text-{{ vw.aktif }} ti-face-{{vw.icon}}"></i></td>
+                      <td width="1" class="center"><a href="#/update-siswa/{{ vw.nis }}" class="icon-link btn-warning"><i class="ti-pencil"></i></a></td>
+                      <td width="1" class="center"><a href="#/detail-siswa/{{ vw.nis }}" class="icon-link btn-info"><i class="ti-search"></i></a></td>
+                      <td width="1" class="center"><a ng-click="aktifSiswa(siswa.indexOf(vw), vw.nis, vw.nama | ucwords)" class="icon-link btn-danger"><i class="ti-power-off"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="header">
+                    <button ng-click="loadMore()" ng-hide="loadMoreDisabled()" class="btn btn-default btn-block">Tampilkan lebih banyak</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

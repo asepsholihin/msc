@@ -1,0 +1,173 @@
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: #ccc;
+}
+.control {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 9px !important;
+  cursor: pointer;
+  font-size: 18px;
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+label.control {
+  color: #66615b !important;
+}
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+}
+.control--radio .control__indicator {
+  border-radius: 50%;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+.control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+.control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked ~ .control__indicator:after {
+  display: block;
+}
+.control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+.control--radio .control__indicator:after {
+  left: 7px;
+  top: 7px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+  background: #7b7b7b;
+}
+
+.ng-enter {
+  position: relative;
+  -webkit-transition: .3s linear all; /* Safari/Chrome */
+  -moz-transition: .3s linear all; /* Firefox */
+  -o-transition: .3s linear all; /* Opera */
+  transition: .3s linear all; /* IE10+ and Future Browsers */
+}
+.ng-enter {
+  top: 10px;
+  opacity: 0;
+}
+.ng-enter.ng-enter-active {
+  top: 0;
+  opacity: 1;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+.box-siswa {
+  max-height: 590px;
+  min-height: 590px;
+  overflow: auto;
+  overflow-y: auto;
+}
+.box-kelas {
+  max-height: 400px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+td.center, th.center {
+  text-align: center;
+}
+.icon-link {
+  color: #fff !important;
+  padding: 8px;
+  border-radius: 100%;
+
+  i {
+      margin-right: 0 !important;
+  }
+}
+.icon-close {
+    float: right;
+    font-size: 0.5em;
+    padding: 6px 8px;
+    background: #777;
+}
+.icon-printer {
+    float: right;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    background: #7A9E9F;
+}
+.text-1 {
+    color: #5cb85c;
+}
+.text-0 {
+    color: red;
+}
+
+.topless {
+  padding-top: 0 !important;
+}
+
+#loading-bar .bar {
+  background: #2c3e50;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  #2c3e50;
+  border-left-color: #2c3e50;
+}
+#loading-bar .peg {
+  -moz-box-shadow: #2c3e50 1px 0 6px 1px;
+  -ms-box-shadow: #2c3e50 1px 0 6px 1px;
+  -webkit-box-shadow: #2c3e50 1px 0 6px 1px;
+  box-shadow: #2c3e50 1px 0 6px 1px;
+}
+
+.detail {
+
+}

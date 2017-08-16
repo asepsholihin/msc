@@ -1,0 +1,62 @@
+<div class="row">
+
+    <div class="col-md-9">
+        <div class="card">
+            <div class="header">
+                <a href="#/pegawai" class="icon-link icon-close"><i class="ti-close"></i></a>
+                <h4 class="title">Data Guru</h4>
+                <p class="category">Here is a subtitle for this table</p>
+            </div>
+
+            <div class="header">
+              <div class="form-group">
+                <input class="form-control border-input" type="text" ng-model="bynama" placeholder="Cari pelajaran...">
+              </div>
+            </div>
+
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Pelajaran</th>
+                        <th>Status Guru</th>
+                        <th class="center" colspan="2"><a href="#/tambah-guru" class="btn btn-default btn-fill btn-block"><i class="ti-pencil-alt"></i></a><th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr ng-repeat="vw in guru | filter:bynama">
+                      <td>{{ $index+1 }}</td>
+                      <td>{{ vw.nama | ucwords }}</td>
+                      <td>{{ vw.pelajaran }}</td>
+                      <td>{{ vw.status_guru }}</td>
+                      <td width="1" class="center"><a href="#/update-guru/{{ vw.id }}" class="icon-link btn-warning"><i class="ti-pencil"></i></a></td>
+                      <td width="1" class="center"><a href="#/detail-pegawai/{{ vw.nip }}" class="icon-link btn-info"><i class="ti-search"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="header">
+            <h4 class="title">Mata Pelajaran
+        </div>
+        <div class="content" ng-controller="AkademikController">
+          <table class="table table-striped">
+            <tbody>
+              <tr ng-repeat="vw in akademik | filter:bynama">
+                <td>{{ vw.pelajaran }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+</div>

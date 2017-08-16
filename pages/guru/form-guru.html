@@ -1,0 +1,83 @@
+<form name="guruForm" ng-submit="simpanGuru()">
+
+  <input type="hidden" ng-model="formGuru.update">
+
+  <div class="col-md-6">
+    <div class="card  box-siswa">
+      <div class="header">
+          <a href="#/guru" class="icon-link icon-close"><i class="ti-close"></i></a>
+          <h4 class="title">Tambah Guru</h4>
+      </div>
+      <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Mata Pelajaran</label>
+                <select class="form-control border-input" ng-model="formGuru.id_pelajaran" ng-options="vw as vw.pelajaran for vw in pelajarans track by vw.id" required>
+                  <option value="">Pilih Mata Pelajaran</option>
+                </select>
+              </div>
+              <div class="form-group" ng-class="{true: 'has-error'}[submitted && guruForm.nip.$invalid]">
+                  <label>Guru</label>
+                  <input type="text" class="form-control border-input" ng-model="formGuru.nama" placeholder="Nama Guru" disabled>
+                  <input type="hidden" name="nip" ng-model="formGuru.nip" required>
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <select class="form-control border-input" ng-model="formGuru.status_guru" required>
+                  <option value="">Pilih Status</option>
+                  <option value="Asisten">Asisten</option>
+                  <option value="Guru Honorer">Guru Honorer</option>
+                  <option value="Guru Pelajaran">Guru Pelajaran</option>
+                </select>
+              </div>
+              <div class="form-group">
+                  <label>Keterangan</label>
+                  <input type="text" class="form-control border-input" ng-model="formGuru.keterangan" placeholder="Keterangan">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-fill btn-primary btn-lg btn-block" ng-click="submitted=true">Simpan</button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card box-siswa">
+      <div class="content" ng-controller="PegawaiController">
+
+        <div class="form-group">
+          <input class="form-control border-input" type="text" ng-model="search" placeholder="Cari Wali Kelas...">
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th width="1">NIP</th>
+                <th>Nama</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="clickable" ng-repeat="vw in pegawai | filter:search" ng-click="pilihGuru(vw.nip,vw.nama)">
+              <td>{{ vw.nip }}</td>
+              <td>{{ vw.nama | ucwords }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</form>
+
+<script type="text/javascript">
+jQuery("form input").on("invalid", function(e) {
+  var errorMessage = "Harap isi dengan lengkap";
+  e.target.setCustomValidity("");
+  if (e.target.validity.valueMissing) {
+    e.target.setCustomValidity(errorMessage);
+  }
+});
+</script>

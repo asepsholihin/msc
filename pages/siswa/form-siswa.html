@@ -1,0 +1,501 @@
+<form name="siswaForm" ng-submit="simpanSiswa()">
+
+  <input type="hidden" ng-model="formSiswa.update">
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="header">
+          <a href="#/siswa" class="icon-link icon-close"><i class="ti-close"></i></a>
+          <h4 class="title"> Data Pribadi</h4>
+      </div>
+      <div class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.nis.$invalid]">
+                    <label>NIS</label>
+                    <input type="text" class="form-control border-input" name="nis" ng-model="formSiswa.nis" placeholder="NIS" required>
+                </div>
+                <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.nisn.$invalid]">
+                    <label>NISN</label>
+                    <input type="text" class="form-control border-input" name="nisn" ng-model="formSiswa.nisn" placeholder="NISN (dari Sekolah/Kemdikbud)" required>
+                </div>
+                <div class="form-group">
+                    <label>NIK</label>
+                    <input type="text" class="form-control border-input" ng-model="formSiswa.nik" placeholder="NIK (dari Kartu Keluarga)">
+                </div>
+                <div class="form-group">
+                    <label>Nomor Urut UN</label>
+                    <input type="text" class="form-control border-input" ng-model="formSiswa.noun" placeholder="Nomor Urut Ujian Nasional">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.nama.$invalid]">
+                    <label>Nama Lengkap</label>
+                    <input type="text" class="form-control border-input" name="nama" ng-model="formSiswa.nama" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label><br>
+                    <label class="control control--radio">Laki-laki
+                      <input type="radio" ng-model="formSiswa.kelamin" value="L">
+                      <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--radio">Perempuan
+                      <input type="radio" ng-model="formSiswa.kelamin" value="P">
+                      <div class="control__indicator"></div>
+                    </label>
+                </div>
+                <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.tempat_lahir.$invalid]">
+                    <label>Tempat Lahir</label>
+                    <input type="text" class="form-control border-input" name="tempat_lahir" ng-model="formSiswa.tempat_lahir" placeholder="Tempat Lahir" required>
+                </div>
+
+                <label>Tanggal Lahir</label>
+                <div class="row">
+                  <div class="col-md-3 topless">
+                    <select class="form-control border-input" ng-model="formSiswa.tgllahir" required>
+                      <option value="">Tgl</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
+                    </select>
+                  </div>
+                  <div class="col-md-5 topless">
+                    <select class="form-control border-input" ng-model="formSiswa.blnlahir" required>
+                      <option value="">Bulan</option>
+                      <option value="01">Januari</option>
+                      <option value="02">Februari</option>
+                      <option value="03">Maret</option>
+                      <option value="04">April</option>
+                      <option value="05">Mei</option>
+                      <option value="06">Juni</option>
+                      <option value="07">Juli</option>
+                      <option value="08">Agustus</option>
+                      <option value="09">September</option>
+                      <option value="10">Oktober</option>
+                      <option value="11">November</option>
+                      <option value="12">Desember</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 topless">
+                    <select class="form-control border-input" ng-model="formSiswa.thnlahir" required>
+                      <option value="">Tahun</option>
+                      <option value="1995">1995</option>
+                      <option value="1996">1996</option>
+                      <option value="1997">1997</option>
+                      <option value="1998">1998</option>
+                      <option value="1999">1999</option>
+                      <option value="2000">2000</option>
+                      <option value="2001">2001</option>
+                      <option value="2002">2002</option>
+                      <option value="2003">2003</option>
+                      <option value="2004">2004</option>
+                      <option value="2005">2005</option>
+                      <option value="2006">2006</option>
+                      <option value="2007">2007</option>
+                      <option value="2008">2008</option>
+                      <option value="2009">2009</option>
+                      <option value="2010">2010</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Status</label><br>
+                    <label class="control control--radio">Reguler
+                      <input type="radio" ng-model="formSiswa.status" value="reguler">
+                      <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--radio">Mutasi
+                      <input type="radio" ng-model="formSiswa.status" value="mutasi">
+                      <div class="control__indicator"></div>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>Kewarganegaraan</label><br>
+                    <label class="control control--radio">Warga Indonesia
+                      <input type="radio" ng-model="formSiswa.warga" value="WNI">
+                      <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--radio">Warga Asing
+                      <input type="radio" ng-model="formSiswa.warga" value="WNA">
+                      <div class="control__indicator"></div>
+                    </label>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 topless">
+                    <div class="form-group">
+                        <label>Status Anak</label>
+                        <select class="form-control border-input" ng-model="formSiswa.status_anak" required>
+                          <option value="">Pilih</option>
+                          <option value="Anak Kandung">Anak Kandung</option>
+                          <option value="Anak Angkat">Anak Angkat</option>
+                          <option value="Anak Tiri">Anak Tiri</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6 topless">
+                    <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.anakke.$invalid]">
+                      <label>Anak Ke</label>
+                      <input type="text" class="form-control border-input" name="anakke" ng-model="formSiswa.anakke" placeholder="0" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 topless">
+                    <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.jsaudara.$invalid]">
+                      <label>Saudara Kandung</label>
+                      <input type="text" class="form-control border-input" name="jsaudara" ng-model="formSiswa.jsaudara" placeholder="Jumlah" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6 topless">
+                    <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.jtiri.$invalid]">
+                      <label>Saudara Tiri</label>
+                      <input type="text" class="form-control border-input" name="jtiri" ng-model="formSiswa.jtiri" placeholder="Jumlah" required>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="header">
+          <h4 class="title">Riwayat Kesehatan</h4>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Golongan Darah</label>
+              <select class="form-control border-input" ng-model="formSiswa.darah" required>
+                <option value="">Pilih</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+                <option value="0">Belum mengetahui</option>
+              </select>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.berat.$invalid]">
+              <label>Berat Badan</label>
+              <div class="input-group border-input">
+                <input type="text" class="form-control border-input" name="berat" ng-model="formSiswa.berat" placeholder="Berat Badan" required>
+                <span class="input-group-addon">Kg</span>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.tinggi.$invalid]">
+              <label>Tinggi Badan</label>
+              <div class="input-group border-input">
+                <input type="text" class="form-control border-input" name="tinggi" ng-model="formSiswa.tinggi" placeholder="Tinggi Badan" required>
+                <span class="input-group-addon">Cm</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Riwayat Penyakit</label>
+              <input type="text" class="form-control border-input" ng-model="formSiswa.kesehatan" placeholder="Penyakit yang pernah diderita">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="header">
+          <h4 class="title">Riwayat Sekolah</h4>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.asal_sekolah.$invalid]">
+              <label>Asal Sekolah</label>
+              <input type="text" class="form-control border-input" name="asal_sekolah" ng-model="formSiswa.asal_sekolah" placeholder="Asal Sekolah" required>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.alamat_sekolah.$invalid]">
+              <label>Alamat Sekolah (Kota)</label>
+              <input type="text" class="form-control border-input" name="alamat_sekolah" ng-model="formSiswa.alamat_sekolah" placeholder="Alamat Sekolah" required>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>No. Seri Ijazah</label>
+                  <input type="text" class="form-control border-input" ng-model="formSiswa.no_ijazah" placeholder="No. Seri Ijazah">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Tanggal Ijazah</label>
+                  <input type="text" class="form-control border-input" ng-model="formSiswa.tanggal_ijazah" placeholder="Tanggal Ijazah">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>No. Seri SKHUN</label>
+              <input type="text" class="form-control border-input" ng-model="formSiswa.no_skhun" placeholder="No. Seri SKHUN">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="header">
+          <h4 class="title">Data Orangtua Ayah</h4>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.nama_ayah.$invalid]">
+              <label>Nama Ayah</label>
+              <input type="text" class="form-control border-input" name="nama_ayah" ng-model="formSiswa.nama_ayah" placeholder="Nama Ayah" required>
+            </div>
+            <div class="form-group">
+              <label>Status Ayah</label>
+              <select class="form-control border-input" ng-model="formSiswa.status_ayah" required>
+                <option value="">Pilih</option>
+                <option value="Orangtua Kandung">Orangtua Kandung</option>
+                <option value="Orangtua Angkat">Orangtua Angkat</option>
+                <option value="Orangtua Tiri">Orangtua Tiri</option>
+              </select>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.tempat_lahir_ayah.$invalid]">
+              <label>Tempat Lahir</label>
+              <input type="text" class="form-control border-input" name="tempat_lahir_ayah" ng-model="formSiswa.tempat_lahir_ayah" placeholder="Tempat Lahir" required>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.tanggal_lahir_ayah.$invalid]">
+              <label>Tanggal Lahir</label>
+              <input type="text" class="form-control border-input" name="tanggal_lahir_ayah" ng-model="formSiswa.tanggal_lahir_ayah" placeholder="Contoh: 20-03-1995" required>
+            </div>
+            <div class="form-group">
+              <label>Pendidikan Ayah</label>
+              <select class="form-control border-input" ng-model="formSiswa.pendidikan_ayah" required>
+                <option value="">Pilih</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA</option>
+                <option value="SMK">SMK</option>
+                <option value="D1">D1</option>
+                <option value="D2">D2</option>
+                <option value="D3">D3</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Pekerjaan Ayah</label>
+              <select class="form-control border-input" ng-model="formSiswa.pekerjaan_ayah" required>
+                <option value="">Pilih</option>
+                <option value="PNS">PNS</option>
+                <option value="TNI/Polri">TNI/Polri</option>
+                <option value="Dokter">Dokter</option>
+                <option value="Dosen">Dosen</option>
+                <option value="Pegawai Swasta">Pegawai Swasta</option>
+                <option value="Wiraswasta">Wiraswasta</option>
+                <option value="Petani/Peternak/Nelayan">Petani/Peternak/Nelayan</option>
+                <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+              </select>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.penghasilan_ayah.$invalid]">
+              <label>Penghasilan Ayah</label>
+              <input type="text" class="form-control border-input" name="penghasilan_ayah" ng-model="formSiswa.penghasilan_ayah" placeholder="0" required>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="header">
+          <h4 class="title">Data Orangtua Ibu</h4>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.nama_ibu.$invalid]">
+              <label>Nama Ibu</label>
+              <input type="text" class="form-control border-input" name="nama_ibu" ng-model="formSiswa.nama_ibu" placeholder="Nama Ibu" required>
+            </div>
+            <div class="form-group">
+              <label>Status Ibu</label>
+              <select class="form-control border-input" ng-model="formSiswa.status_ibu" required>
+                <option value="">Pilih</option>
+                <option value="Orangtua Kandung">Orangtua Kandung</option>
+                <option value="Orangtua Angkat">Orangtua Angkat</option>
+                <option value="Orangtua Tiri">Orangtua Tiri</option>
+              </select>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.tempat_lahir_ibu.$invalid]">
+              <label>Tempat Lahir</label>
+              <input type="text" class="form-control border-input" name="tempat_lahir_ibu" ng-model="formSiswa.tempat_lahir_ibu" placeholder="Tempat Lahir" required>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.tanggal_lahir_ibu.$invalid]">
+              <label>Tanggal Lahir</label>
+              <input type="text" class="form-control border-input" name="tanggal_lahir_ibu" ng-model="formSiswa.tanggal_lahir_ibu" placeholder="Contoh: 20-03-1995" required>
+            </div>
+            <div class="form-group">
+              <label>Pendidikan Ibu</label>
+              <select class="form-control border-input" ng-model="formSiswa.pendidikan_ibu" required>
+                <option value="">Pilih</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA</option>
+                <option value="SMK">SMK</option>
+                <option value="D1">D1</option>
+                <option value="D2">D2</option>
+                <option value="D3">D3</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Pekerjaan Ibu</label>
+              <select class="form-control border-input" ng-model="formSiswa.pekerjaan_ibu" required>
+                <option value="">Pilih</option>
+                <option value="PNS">PNS</option>
+                <option value="TNI/Polri">TNI/Polri</option>
+                <option value="Dokter">Dokter</option>
+                <option value="Dosen">Dosen</option>
+                <option value="Pegawai Swasta">Pegawai Swasta</option>
+                <option value="Wiraswasta">Wiraswasta</option>
+                <option value="Petani/Peternak/Nelayan">Petani/Peternak/Nelayan</option>
+                <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
+              </select>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.penghasilan_ibu.$invalid]">
+              <label>Penghasilan Ibu</label>
+              <input type="text" class="form-control border-input" name="penghasilan_ibu" ng-model="formSiswa.penghasilan_ibu" placeholder="0" required>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.alamat.$invalid]">
+              <label>Alamat</label>
+              <input type="text" class="form-control border-input" name="alamat" ng-model="formSiswa.alamat" placeholder="Jalan, RT/RW, Kota" required>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Provinsi</label>
+                  <select class="form-control border-input" ng-model="formSiswa.provinsi" ng-options="vw as vw.provinsi for vw in provinsis track by vw.provinsi" ng-change="getKabupaten(formSiswa.provinsi)" required>
+                    <option label="{{ formSiswa.provinsi }}">{{ formSiswa.provinsi }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Kabupaten</label>
+                  <select class="form-control border-input" ng-model="formSiswa.kabupaten" ng-options="vw as vw.kabupaten for vw in kabupatens track by vw.kabupaten" ng-change="getKecamatan(formSiswa.kabupaten)" required>
+                    <option label="{{ formSiswa.kabupaten }}">{{ formSiswa.kabupaten }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Kecamatan</label>
+                  <select class="form-control border-input" ng-model="formSiswa.kecamatan" ng-options="vw as vw.kecamatan for vw in kecamatans track by vw.kecamatan" ng-change="getDesa(formSiswa.kecamatan)" required>
+                    <option label="{{ formSiswa.kecamatan }}">{{ formSiswa.kecamatan }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Desa</label>
+                  <select class="form-control border-input" ng-model="formSiswa.desa" ng-options="vw as vw.desa for vw in desas track by vw.desa" required>
+                    <option label="{{ formSiswa.desa }}">{{ formSiswa.desa }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Kode Pos</label>
+                  <input type="text" class="form-control border-input" ng-model="formSiswa.kodepos" placeholder="0">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Jarak ke Ma'rifatussalaam</label>
+                  <input type="text" class="form-control border-input" ng-model="formSiswa.jarak_sekolah" placeholder="0">
+                </div>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.email.$invalid]">
+              <label>Email Ayah/Ibu (Pilih salah satu)</label>
+              <input type="text" class="form-control border-input" name="email" ng-model="formSiswa.email" placeholder="Email Orangtua Salah satu saja" required>
+            </div>
+            <div class="form-group" ng-class="{true: 'has-error'}[submitted && siswaForm.handphone.$invalid]">
+              <label>Handphone Ayah/Ibu (Pilih salah satu)</label>
+              <input type="text" class="form-control border-input" name="handphone" ng-model="formSiswa.handphone" placeholder="Handphone Orangtua Salah satu saja" required>
+            </div>
+            <div class="form-group">
+              <label>Kontak Orangtua (Boleh lebih dari satu)</label>
+              <input type="text" class="form-control border-input" ng-model="formSiswa.kontak" placeholder="Kontak yang dapat dihubungi">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-fill btn-primary btn-lg btn-block" ng-click="submitted=true">Simpan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script type="text/javascript">
+jQuery("form input").on("invalid", function(e) {
+  var errorMessage = "Harap isi dengan lengkap";
+  e.target.setCustomValidity("");
+  if (e.target.validity.valueMissing) {
+    e.target.setCustomValidity(errorMessage);
+  }
+});
+</script>

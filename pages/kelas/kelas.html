@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+      <div class="card ">
+          <div class="header">
+              <a href="#/siswa" class="icon-link icon-close"><i class="ti-close"></i></a>
+              <h4 class="title">Data Kelas</h4>
+              <p class="category">Here is a subtitle for this table</p>
+          </div>
+          <div class="content table-responsive table-full-width">
+              <table class="table table-striped">
+                  <thead>
+                    <th>No</th>
+                    <th>Kelas</th>
+                    <th>Wali Kelas</th>
+                    <th class="center">Anggota</th>
+                    <th class="center">Tingkat</th>
+                    <th class="center" colspan="4"><a href="#/tambah-kelas" class="btn btn-default btn-fill btn-block"><i class="ti-pencil-alt"></i></a><th>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="vw in kelas">
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ vw.kelas }}</td>
+                        <td>{{ vw.wali_kelas }}</td>
+                        <td class="center">{{ vw.anggota }}</td>
+                        <td class="center">{{ vw.tingkat }}</td>
+                        <td width="1" class="center"><a href="#/update-kelas/{{ vw.id }}" class="icon-link btn-warning"><i class="ti-pencil"></i></a></td>
+                        <td width="1" class="center"><a href="#/anggota-kelas/{{ vw.id }}" class="icon-link btn-primary"><i class="ti-user"></i></a></td>
+                        <td width="1" class="center"><a href="#/" class="icon-link btn-danger"><i class="ti-trash"></i></a></td>
+                        <td width="1" class="center"><a class="icon-link btn-success" ng-click="cetakAnggotaKelas( vw.id );"><i class="ti-printer"></i></a></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+  </div>
+
+</div>

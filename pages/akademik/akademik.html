@@ -1,0 +1,136 @@
+<div class="row">
+    <div class="col-lg-3 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="#/rpp" class="icon-link btn-info"><i class="ti-ruler-pencil"></i></a> Upload RPP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="#/asrama" class="icon-link btn-success"><i class="ti-book"></i></a> Upload Silabus
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <a href="#/asrama" class="icon-link btn-warning"><i class="ti-star"></i></a> Upload Nilai
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card">
+            <div class="content">
+                <div class="footer">
+                    <div class="stats">
+                        <i class="ti-pencil"></i> <a href="#/kelas">Kelola Kelas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Mata Pelajaran</h4>
+                <p class="category">Here is a subtitle for this table</p>
+            </div>
+
+            <div class="header">
+              <div class="form-group">
+                <input class="form-control border-input" type="text" ng-model="bynama" placeholder="Cari pelajaran...">
+              </div>
+            </div>
+
+            <div class="content table-responsive table-full-width">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kode</th>
+                        <th>Pelajaran</th>
+                        <th>Sifat</th>
+                        <th class="center" colspan="2"><th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr ng-repeat="vw in akademik | filter:bynama">
+                      <td>{{ $index+1 }}</td>
+                      <td>{{ vw.kode }}</td>
+                      <td>{{ vw.pelajaran }}</td>
+                      <td>{{ vw.sifat | ucwords }}</td>
+                      <td width="1" class="center"><a href="" ng-click="updateSiswa($index)" class="icon-link btn-warning"><i class="ti-pencil"></i></a></td>
+                      <td width="1" class="center"><a href="#/detail-siswa/{{ vw.nis }}" class="icon-link btn-danger"><i class="ti-trash"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="header">
+            <h4 class="title">Form Pelajaran</h4>
+        </div>
+        <div class="content">
+          <form name="pelajaranForm" ng-submit="simpanPelajaran()">
+
+            <input type="hidden" ng-model="formPelajaran.update">
+
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group" ng-class="{true: 'has-error'}[submitted && pelajaranForm.pelajaran.$invalid]">
+                      <label>Pelajaran</label>
+                      <input type="text" class="form-control border-input" name="pelajaran" ng-model="formPelajaran.pelajaran" placeholder="Nama Pelajaran" required>
+                  </div>
+                  <div class="form-group" ng-class="{true: 'has-error'}[submitted && pelajaranForm.kode.$invalid]">
+                      <label>Kode</label>
+                      <input type="text" class="form-control border-input" name="kode" ng-model="formPelajaran.kode" placeholder="Kode / Singkatan Pelajaran" required>
+                  </div>
+                  <div class="form-group">
+                      <label>Kriteria</label><br>
+                      <label class="control control--radio">Wajib
+                        <input type="radio" ng-model="formPelajaran.sifat" value="wajib">
+                        <div class="control__indicator"></div>
+                      </label>
+                      <label class="control control--radio">Tambahan
+                        <input type="radio" ng-model="formPelajaran.sifat" value="tambahan">
+                        <div class="control__indicator"></div>
+                      </label>
+                  </div>
+                  <div class="form-group">
+                      <label>Keterangan</label>
+                      <input type="text" class="form-control border-input" ng-model="formPelajaran.keterangan" placeholder="Keterangan">
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-fill btn-primary btn-md btn-block" ng-click="submitted=true">Simpan</button>
+                  </div>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+</div>

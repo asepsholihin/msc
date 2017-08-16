@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <a href="#/kelas" class="icon-link icon-close"><i class="ti-close"></i></a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="content box-siswa">
+
+        <div class="form-group">
+          <input class="form-control border-input" type="text" ng-model="search" placeholder="Cari siswa...">
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th width="1">NIS</th>
+                <th>Nama</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="vw in siswa | filter:search">
+              <td>{{ vw.nis }}</td>
+              <td>{{ vw.nama | ucwords }}</td>
+              <td width="1" class="center"><a ng-click="simpanAnggota(siswa.indexOf(vw), vw.nis, vw.nama, 'masuk', formKelas.id)" class="clickable icon-link btn-success" title="Masukan Anggota"><i class="ti-share"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="content box-siswa">
+
+        <div class="header">
+            <h4 class="title">Anggota Kelas {{ formKelas.kelas }}</h4>
+            <p class="category">Jumlah anggota {{ anggota.length }}</p>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th width="1">No.</th>
+                <th width="1">NIS</th>
+                <th>Nama</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="vw in anggota">
+              <td>{{ $index+1 }}</td>
+              <td>{{ vw.nis }}</td>
+              <td>{{ vw.nama | ucwords }}</td>
+              <td class="center"><a ng-click="simpanAnggota(anggota.indexOf(vw), vw.nis, vw.nama, 'keluar', formKelas.id)" class="clickable icon-link btn-danger" title="Keluarkan Anggota"><i class="ti-share-alt"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

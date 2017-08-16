@@ -1,0 +1,260 @@
+<div class="row">
+
+  <div class="col-lg-8 col-md-7">
+      <div class="card">
+
+          <div class="header">
+            <a class="btn btn-info btn-sm pull-right" ng-click="addNewChoice()">+</a>
+            <h4 class="title">IURAN BULANAN/SPP</h4>
+          </div>
+
+          <div class="content">
+
+            <form name="transaksiForm" ng-submit="simpanTransaksi()">
+
+              <div class="form-group">
+                <input class="form-control border-input" type="date" ng-model="tanggal">
+              </div>
+
+              <!-- ngedapetin id sama namanya dari box siswa -->
+              <div class="form-group">
+                <input type="hidden" ng-model="nis" required>
+                <input class="form-control border-input" type="text" ng-model="nama" placeholder="Nama" disabled required>
+              </div>
+
+              <div class="row form-repeat" ng-repeat="choice in spp">
+                <div class="col-md-4">
+                  <select class="form-control border-input" ng-model="choice.sppbulan" name="sppbulan">
+                    <option value="">Pilih Bulan</option>
+                    <option value="januari">Januari</option>
+                    <option value="februari">Februari</option>
+                    <option value="maret">Maret</option>
+                    <option value="april">April</option>
+                    <option value="mei">Mei</option>
+                    <option value="juni">Juni</option>
+                    <option value="juli">Juli</option>
+                    <option value="agustus">Agustus</option>
+                    <option value="september">September</option>
+                    <option value="oktober">Oktober</option>
+                    <option value="november">November</option>
+                    <option value="desember">Desember</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <select class="form-control border-input" ng-model="choice.spptahun" name="spptahun">
+                    <option value="">Pilih Tahun</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                  </select>
+                </div>
+                <div class="col-md-5">
+                  <input class="form-control border-input" type="text" name="sppjumlah" ng-model="choice.sppjumlah" placeholder="Iuran SPP">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="title">UANG PANGKAL</h4>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.psp" placeholder="Pengembangan Sarana & Prasarana">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.sdm" placeholder="Pengembangan SDM">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.kegiatantahunan" placeholder="Kegiatan Tahunan">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.seragam" placeholder="Seragam">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.buku" placeholder="Buku Paket & Modul">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.orientasi" placeholder="Pekan Ta'aruf (Orientasi)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.komitmenbulanan" placeholder="Komitmen Bulanan">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.komitmentahunan" placeholder="Komitmen Tahunan">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.uangsaku" placeholder="Uang Saku">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.kaskomite" placeholder="Kas Komite">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.infaq" placeholder="Infaq">
+                </div>
+                <div class="col-md-4">
+                  <input class="rupiah form-control border-input" onkeypress="return isNumberKey(event)" type="text" ng-model="formTransaksi.qurban" placeholder="Qurban">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <select class="form-control border-input" ng-model="petugas" required>
+                    <option value="">Pilih Petugas</option>
+                    <option value="Evi Siti Soviani">Evi Siti Soviani</option>
+                    <option value="Wati Wiarsih">Wati Wiarsih</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <select class="form-control border-input" ng-model="transfer" required>
+                    <option value="">Pilih Transaksi</option>
+                    <option value="0">Tunai</option>
+                    <option value="1">Transfer</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <button ng-disabled="transaksiForm.$invalid" class="btn btn-fill btn-primary btn-lg btn-block">Simpan</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+      </div>
+
+  </div>
+
+  <div class="col-md-4">
+    <div class="card" ng-controller="SiswaController">
+      <div class="content box-siswa">
+
+        <div class="form-group">
+          <input class="form-control border-input" type="text" ng-model="search" placeholder="Cari siswa...">
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th width="1">NIS</th>
+                <th>Nama</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="clickable" ng-repeat="vw in siswa | filter:search" ng-click="pilihSiswa(vw.nis,vw.nama)">
+              <td>{{ vw.nis }}</td>
+              <td>{{ vw.nama | ucwords }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button ng-click="loadMore()" ng-hide="loadMoreDisabled()" class="btn btn-default btn-block">Tampilkan lebih banyak</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!--
+// log transaksi perhari
+-->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="content">
+          <h4 class="title">Aktivitas Transaksi Harian</h4>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th width="1">No</th>
+                <th>ID Referensi</th>
+                <th>NIS</th>
+                <th>Nama</th>
+                <th>Total</th>
+                <th>Transaksi</th>
+                <th>Tanggal</th>
+                <th>Cetak</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="vw in transaksi">
+                <td>{{ $index+1 }}</td>
+                <td>{{ vw.id }}</td>
+                <td>{{ vw.nis }}</td>
+                <td>{{ vw.nama }}</td>
+                <td>{{ vw.total }}</td>
+                <td>{{ vw.transfer }}</td>
+                <td>{{ vw.tanggal | date:'dd-MM-yyyy' }}</td>
+                <th><a href="pages/keuangan/invoice.php?nis={{ vw.nis }}&id_referensi={{ vw.id }}" target="_blank">Invoice</a></th>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-sm-6" ng-repeat="vw in summaries" ng-show="summaries.length > 0">
+        <div class="card">
+            <div class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="numbers">
+                            <p>{{ vw.transaksi }}</p>
+                            <strong>Rp. {{ vw.jumlah | number }}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+$('input.rupiah').keyup(function(event){
+    // skip for arrow keys
+    if(event.which >= 37 && event.which <= 40){
+    event.preventDefault();
+    }
+    var $this = $(this);
+    var num = $this.val().replace(/,/gi, "").split("").reverse().join("");
+    var num2 = RemoveRougeChar(num.replace(/(.{3})/g,"$1,").split("").reverse().join(""));
+
+    // the following line has been simplified. Revision history contains original.
+    $this.val(num2);
+});
+
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    return false;
+
+    return true;
+}
+
+function RemoveRougeChar(convertString){
+    if(convertString.substring(0,1) == ","){
+        return convertString.substring(1, convertString.length);
+    }
+    return convertString;
+}
+</script>
