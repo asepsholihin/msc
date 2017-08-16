@@ -1,8 +1,8 @@
 <?php
 
-$host = "localhost:3434";
+$host = "localhost";
 $user = "root";
-$pass = "kebersamaan";
+$pass = "";
 $db   = "master";
 
 //connection
