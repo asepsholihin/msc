@@ -9,7 +9,7 @@ $response = array();
 $start  = $_GET['start'];
 $limit  = $_GET['limit'];
 
-$sql    ="SELECT nip, nama, tempat_lahir, tanggal_lahir, bagian, gelar_awal, gelar_akhir, status, bpjs_kes, bpjs_ket,
+$sql    ="SELECT nip, nama, tempat_lahir, tanggal_lahir, bagian, gelar_awal, gelar_akhir, status, bpjs_kes, bpjs_ket,mulai_kerja,
 CASE WHEN bpjs_kes='1' THEN 'check' ELSE 'close' END AS bpjs_kes_icon,
 CASE WHEN bpjs_ket='1' THEN 'check' ELSE 'close' END AS bpjs_ket_icon,
 aktif, CASE WHEN aktif='1' THEN 'smile' ELSE 'sad' END AS icon,

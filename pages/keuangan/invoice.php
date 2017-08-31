@@ -30,7 +30,7 @@ body {
 }
 .content {
     position: absolute;
-    top: 170px;
+    top: 190px;
     width: 100%;
 }
 .content table {
